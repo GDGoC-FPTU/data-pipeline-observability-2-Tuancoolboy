@@ -6,13 +6,15 @@ permissions:
   checks: write
   actions: read
   contents: read
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     - name: ETL Functional
       id: etl-functional
       uses: classroom-resources/autograding-command-grader@v1
